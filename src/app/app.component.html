@@ -1,12 +1,59 @@
 <!-- the interpolation or one way binding -->
 <app-header></app-header>
 
+
 <div class="center">
   <h1 class="Head">Hello, {{title}}!</h1>
   <h2>I am <span class="intro"> {{intro}} </span></h2>
   <h3 class="time">Time: {{Time()}}</h3>
 </div>
 <hr>
+<br>
+<!-- Making Todo List -->
+<h3>Todo List</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<!-- Material UI Practice -->
+<h2>Material UI</h2>
+
+<mat-slider step="9" tickInterval="5"></mat-slider>
+<section>
+  <h4>Buttons</h4>
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://material.angular.io/components/button/overview" target="_blank">Link</a> <br>
+    <br>
+    <h4>Using Badges</h4>
+    <p>
+      Button with a badge on the right
+      <a mat-stroked-button color="warn" href="https://material.angular.io/components/badge/api"
+          matBadge="99+" matBadgePosition="after" matBadgeColor="warn" target="_blank">
+
+        Badges
+    </a>
+    </p>
+  </div>
+
+</section>
+
 <br>
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
   <ngb-panel title="Simple">
