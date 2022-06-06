@@ -1,0 +1,151 @@
+<!-- the interpolation or one way binding -->
+<app-header></app-header>
+
+<div class="center">
+  <h1 class="Head">Hello, {{title}}!</h1>
+  <h2>I am <span class="intro"> {{intro}} </span></h2>
+  <h3 class="time">Time: {{Time()}}</h3>
+</div>
+<hr>
+<br>
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel title="Simple">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span>&#9733; <b>Fancy</b> title &#9733;</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Disabled" [disabled]="true">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion> <br>
+<!-- Basic Form -->
+<h2 class="italic">Basic Form</h2>
+<form #basicForm="ngForm" (ngSubmit)="submit(basicForm.value)">
+  <label for="username">Name:</label>
+  <input type="text" ngModel name="user" placeholder="enter username"> <br>
+
+  <label for="email">Email:</label>
+  <input type="email" ngModel name="email" placeholder="enter your email"> <br>
+
+  <label for="password">Password: </label>
+  <input type="password" ngModel name="password" placeholder="enter your password"> <br>
+  <button class="btn btn-primary">Submit</button>
+</form>
+<ul id="#formul">
+  <li>{{userData.user}}</li>
+  <li>{{userData.email}}</li>
+  <li>{{userData.password}}</li>
+</ul>
+
+
+
+
+<!-- components can be used as html tag list -->
+<h3 class="italic">Practice in Angular</h3>
+<!-- <app-user-list class="Head"></app-user-list> -->
+<br>
+<!-- for events you have to use parenthesis -->
+<button class="btn btn-info" (click)="func_check()">Click Here!</button> <br> <br>
+<button class="btn btn-dark" (click)="display('Sohaib')">Introduction!</button> <br> <br>
+<button class="btn btn-danger" (click)="warner()">Caution!</button> <br> <br>
+<label for="event_use">Using Input Boxes</label> <br>
+<!-- keyup, keydown, blur, input -->
+<input type="text" #box (keyup)="get_input_data(box.value)" placeholder="Event Keyup"> <br> <br>
+
+<button class="btn btn-success" #mouse1 (mouseover)="get_input_data('Jerry In')">Check in the cursor here!</button> <br> <br>
+<button class="btn btn-success" #mouse2 (mouseover)="get_input_data('Jerry Out')">Check out cursor here!</button>
+
+<!-- Get text box value and get value on button click -->
+
+<br>
+<label for="event_learn"><b>Text Box: Blur</b></label> <br>
+<input type="text" name="name" #name1 placeholder="Enter Your name here..." (blur)="display(name1.value)">
+<br>
+<br>
+<label for="event_learn"><b>Text Box</b></label> <br>
+<input type="text" name="name" #name1 placeholder="Enter Your name here..."> <br>
+<button class="btn btn-info" (click)="display_text(name1.value)"> Result of Above Input </button> <br>
+<p>
+  {{display_result}}
+</p>
+<hr>
+<button class="btn btn-danger" #bt1 (click)="counter('')">--</button>
+<p>Count: {{count}}</p>
+<button class="btn btn-danger" #bt2 (click)="counter('add')">++</button>
+<h2>Property binding</h2>
+<input type="text" name="user-name" value={{name}} disabled={{disable}}> <br> <br>
+
+<!-- Now Using ng-if to hide/show an element(DOM)  -->
+<!-- ngif show == 'yes' then ifBlock else elseBlock -->
+
+<h2>NG-IF</h2>
+<input #tog type="text" *ngIf="toDisplay" placeholder="Enter your info"> <button class="btn btn-light btn-outline-dark" *ngIf="toDisplay">Send</button>
+<button class="btn btn-danger" (click)="unchanged()">Toggle</button>
+
+<!-- <h3>Multiple Condition</h3>
+
+<ng-template [ngIf]="color==='red'">
+  <h2 style="color:red ;" >Red Color</h2>
+</ng-template>
+
+<ng-template [ngIf]="color==='green'">
+  <h2 style="color:green ;" >Green Color</h2>
+</ng-template>
+
+<ng-template [ngIf]="color==='blue'">
+  <h2 style="color:blue ;" >Blue Color</h2>
+</ng-template> -->
+<hr><br>
+<h2>Switch Case</h2>
+<div [ngSwitch]="color">
+  <h1 style="color: blue;" *ngSwitchCase="'blue'">Blue Color</h1>
+  <h1 style="color: red;" *ngSwitchCase="'red'">Red Color</h1>
+  <h1 style="color: yellow;" *ngSwitchCase="'yellow'">Yellow Color</h1>
+  <h1 style="color: black;" *ngSwitchDefault>Unknown Color</h1>
+</div>
+<hr><br>
+<h2>For Loop and Array</h2>
+
+<h3 *ngFor="let item of users">{{item}}</h3>
+<!-- <h4 *ngFor="let item of userDetail" >Name: {{item.name}} || Email: {{item.email}} || Phone: {{item.phone}}</h4>
+<hr><br> -->
+
+<h2>Nested For Loop and Array</h2>
+<ul *ngFor="let person of persons">
+  <li>Name: {{person.nam}}</li>
+  <li>Email: {{person.email}}</li>
+
+  <ul *ngFor="let acc of person.socialAccounts">
+    <li>{{acc}}</li>
+  </ul>
+</ul>
+
+<h2>** Style Binding **</h2>
+<h3 [style.color]="color" [style.backgroundColor]="bgColor" [style.width]="'180px'"> Hello World! </h3>
+<button  class="btn btn-dark"(click)="updateColor()">Update Color</button>
+<br>
