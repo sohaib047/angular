@@ -18,7 +18,14 @@
     display:grid;
     justify-content: center;
   }
- 
+ #task{
+   border-radius: 8px;
+   margin-bottom: 5px;
+   margin-left: 2px;
+ }
+ #addtask{
+  margin-left: 5px;
+ }
 ul{
   list-style-type: none;
 }

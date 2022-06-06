@@ -48,6 +48,19 @@ export class AppComponent {
     {nam:'Mehdi', email:'Mehdi@yahoo.com', socialAccounts : ['Facebook', 'Instagram', 'Snapchat']},
     {nam:'Mohibullah', email:'Mohibullah@gmail.com', socialAccounts : ['Facebook', 'Instagram', 'Snapchat']},
   ]
+
+  //TODO list
+  tasks:any[] = []
+  addtask(item:string){
+    
+    this.tasks.push({id:this.tasks.length, name:item});
+    console.warn(this.tasks)
+  }
+  removeTask(id:number){
+    this.tasks = this.tasks.filter(item => item.id!==id)
+  }
+
+
   //Material UI code
   options = ['Austrailia', 'UK0']
 

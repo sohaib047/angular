@@ -11,6 +11,12 @@
 <br>
 <!-- Making Todo List -->
 <h3>Todo List</h3>
+<input type="text" name="task" id="task" #task placeholder="Enter New Task...">
+<br> 
+<button mat-raised-button id="addtask"  (click)="addtask(task.value)">Add Task</button>
+<ul *ngFor="let item of tasks">
+  <li>{{item.name}} <button mat-flat-button color="warn" (click)="removeTask(item.id)">Remove</button> </li>
+</ul>
 
 
 
@@ -24,8 +30,7 @@
 
 
 
-
-
+<br>
 <br>
 <!-- Material UI Practice -->
 <h2>Material UI</h2>
