@@ -1,4 +1,3 @@
-<!-- the interpolation or one way binding -->
 <app-header></app-header>
 
 
@@ -9,13 +8,17 @@
 </div>
 <hr>
 <br>
-<!-- Making Todo List -->
-<h3>Todo List</h3>
-<input type="text" name="task" id="task" #task placeholder="Enter New Task...">
-<br> 
-<button mat-raised-button id="addtask"  (click)="addtask(task.value)">Add Task</button>
-<ul *ngFor="let item of tasks">
-  <li>{{item.name}} <button mat-flat-button color="warn" (click)="removeTask(item.id)">Remove</button> </li>
+
+<!-- Send Data  Child -> Component -->
+<h2>Send Data From Child -> Parent Component</h2>
+
+<app-data-child (updateDataEvent) = "updateData($event)" >  </app-data-child>
+
+<br>
+<!-- Re-Usable Component -->
+<h2>Re-Usable Component</h2>
+<ul *ngFor="let user of userDetails" >
+<app-details [item] ='user' > </app-details>
 </ul>
 
 
@@ -25,10 +28,25 @@
 
 
 
+<br>
+<!-- Send Data  Parent -> Child Component -->
+<h2>Send Data From Parent -> Child Component</h2>
+<!-- we can also re-use it by using the tag again and again -->
+<app-child [item]="info"></app-child>
+<button mat-stroked-button color="primary" (click)="changeValue()"> Change Value </button> <br> <br>
 
 
+<br>
 
-
+<br>
+<!-- Making Todo List -->
+<h3>Todo List</h3>
+<input type="text" name="task" id="task" #task placeholder="Enter New Task...">
+<br>
+<button mat-raised-button id="addtask" (click)="addtask(task.value)">Add Task</button>
+<ul *ngFor="let item of tasks">
+  <li>{{item.name}} <button mat-flat-button color="warn" (click)="removeTask(item.id)">Remove</button> </li>
+</ul>
 
 <br>
 <br>
@@ -49,11 +67,11 @@
     <h4>Using Badges</h4>
     <p>
       Button with a badge on the right
-      <a mat-stroked-button color="warn" href="https://material.angular.io/components/badge/api"
-          matBadge="99+" matBadgePosition="after" matBadgeColor="warn" target="_blank">
+      <a mat-stroked-button color="warn" href="https://material.angular.io/components/badge/api" matBadge="99+"
+        matBadgePosition="after" matBadgeColor="warn" target="_blank">
 
         Badges
-    </a>
+      </a>
     </p>
   </div>
 
@@ -63,9 +81,12 @@
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
   <ngb-panel title="Simple">
     <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+      officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+      tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+      helvetica,
       craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
       occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
       labore sustainable VHS.
@@ -76,9 +97,12 @@
       <span>&#9733; <b>Fancy</b> title &#9733;</span>
     </ng-template>
     <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+      officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+      tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+      helvetica,
       craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
       occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
       labore sustainable VHS.
@@ -86,9 +110,12 @@
   </ngb-panel>
   <ngb-panel title="Disabled" [disabled]="true">
     <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+      officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+      tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+      helvetica,
       craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
       occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
       labore sustainable VHS.
@@ -114,9 +141,6 @@
   <li>{{userData.password}}</li>
 </ul>
 
-
-
-
 <!-- components can be used as html tag list -->
 <h3 class="italic">Practice in Angular</h3>
 <!-- <app-user-list class="Head"></app-user-list> -->
@@ -129,7 +153,8 @@
 <!-- keyup, keydown, blur, input -->
 <input type="text" #box (keyup)="get_input_data(box.value)" placeholder="Event Keyup"> <br> <br>
 
-<button class="btn btn-success" #mouse1 (mouseover)="get_input_data('Jerry In')">Check in the cursor here!</button> <br> <br>
+<button class="btn btn-success" #mouse1 (mouseover)="get_input_data('Jerry In')">Check in the cursor here!</button> <br>
+<br>
 <button class="btn btn-success" #mouse2 (mouseover)="get_input_data('Jerry Out')">Check out cursor here!</button>
 
 <!-- Get text box value and get value on button click -->
@@ -156,7 +181,8 @@
 <!-- ngif show == 'yes' then ifBlock else elseBlock -->
 
 <h2>NG-IF</h2>
-<input #tog type="text" *ngIf="toDisplay" placeholder="Enter your info"> <button class="btn btn-light btn-outline-dark" *ngIf="toDisplay">Send</button>
+<input #tog type="text" *ngIf="toDisplay" placeholder="Enter your info"> <button class="btn btn-light btn-outline-dark"
+  *ngIf="toDisplay">Send</button>
 <button class="btn btn-danger" (click)="unchanged()">Toggle</button>
 
 <!-- <h3>Multiple Condition</h3>
@@ -199,5 +225,5 @@
 
 <h2>** Style Binding **</h2>
 <h3 [style.color]="color" [style.backgroundColor]="bgColor" [style.width]="'180px'"> Hello World! </h3>
-<button  class="btn btn-dark"(click)="updateColor()">Update Color</button>
+<button class="btn btn-dark" (click)="updateColor()">Update Color</button>
 <br>

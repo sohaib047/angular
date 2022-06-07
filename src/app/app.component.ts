@@ -49,12 +49,34 @@ export class AppComponent {
     {nam:'Mohibullah', email:'Mohibullah@gmail.com', socialAccounts : ['Facebook', 'Instagram', 'Snapchat']},
   ]
 
+  userDetails = [
+    {name:'Sohaib', email: 'sohaib@gmail.com'},
+    {name:'Ali', email: 'ali@gmail.com'},
+    {name:'Khan', email: 'khan@gmail.com'},
+    {name:'Akbar', email: 'akbar@gmail.com'},
+  ]
+
+  // child to parent
+  updateData(item:string){
+    console.log(item)
+
+  }
+
+
+  //parent to child
+  info = 10
+  changeValue(){
+    this.info = Math.floor(Math.random()*10)
+  }
+
+
+
   //TODO list
   tasks:any[] = []
   addtask(item:string){
     
     this.tasks.push({id:this.tasks.length, name:item});
-    console.warn(this.tasks)
+    // console.warn(this.tasks)
   }
   removeTask(id:number){
     this.tasks = this.tasks.filter(item => item.id!==id)

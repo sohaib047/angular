@@ -12,11 +12,17 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ChildComponent } from './child/child.component';
+import { DetailsComponent } from './details/details.component';
+import { DataChildComponent } from './data-child/data-child.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    HeaderComponent
+    HeaderComponent,
+    ChildComponent,
+    DetailsComponent,
+    DataChildComponent
   ],
   imports: [
     BrowserModule,
