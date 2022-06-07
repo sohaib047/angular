@@ -15,6 +15,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ChildComponent } from './child/child.component';
 import { DetailsComponent } from './details/details.component';
 import { DataChildComponent } from './data-child/data-child.component';
+import { UsdtopkrPipe } from './pipes/usdtopkr.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { DataChildComponent } from './data-child/data-child.component';
     HeaderComponent,
     ChildComponent,
     DetailsComponent,
-    DataChildComponent
+    DataChildComponent,
+    UsdtopkrPipe,
   ],
   imports: [
     BrowserModule,
