@@ -4,29 +4,64 @@
 <div class="center">
   <h1 class="Head">Hello, {{title}}!</h1>
   <h2>I am <span class="intro"> {{intro}} </span></h2>
-  <h3 class="time">Time: {{Time()}}</h3>
+  <h3 class="time">
+    <p>Day: {{today | date:'fullDate'}}</p>
+    <p>Time: {{today | date:'h:mm:ss a'}}</p>  </h3>
 </div>
 <hr>
 <br>
+<!-- Custom Pipes in Angular -->
+<h2>CustomPipes in Angular</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<!-- Pipes in Angular -->
+<h2>Pipes in Angular</h2>
+<h5>use this | date or uppercase or anyformat you want</h5>
+<p>it is applied above in time section (before it was hard coded)</p>
+<h6>{{title | slice:2 | uppercase }}</h6>
+<h6>{{pipesObject | json | titlecase}}</h6>
+<!-- here decimal point is the midpoint -->
+<p> {{22. | number: '3.2-5'}} </p> 
+<p>{{ 20 | currency:'PKR'}}</p>
+
+
+<br>
+<!-- Template Reference Variable -->
+<h2> Template Reference Variable </h2>
+
+<input type="text" #temp >
+<button mat-stroked-button color="dark" (click)="getVal(temp.value)" > Call Function </button>
+
+<br>
+<!-- Two Way Binding -->
+<h2>Two-Way Binding</h2>
+
+<input type="text" name="twoway" [(ngModel)] = "twoway" > <br>
+<h4>Two way Binding: {{twoway}} </h4>
+
 
 <!-- Send Data  Child -> Component -->
 <h2>Send Data From Child -> Parent Component</h2>
-
-<app-data-child (updateDataEvent) = "updateData($event)" >  </app-data-child>
+<h4>{{u_data}}</h4>
+<app-data-child (updateDataEvent) = "updateData($event)"  >  </app-data-child>
 
 <br>
 <!-- Re-Usable Component -->
 <h2>Re-Usable Component</h2>
 <ul *ngFor="let user of userDetails" >
-<app-details [item] ='user' > </app-details>
+<app-details [item] ='user'  > </app-details>
 </ul>
-
-
-
-
-
-
-
 
 <br>
 <!-- Send Data  Parent -> Child Component -->

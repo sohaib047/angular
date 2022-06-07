@@ -9,6 +9,7 @@ export class DataChildComponent implements OnInit {
 
   constructor() { }
   @Output () updateDataEvent = new EventEmitter<string>();
+  @Output () u_data = new EventEmitter<string>();
   ngOnInit(): void {
   }
 

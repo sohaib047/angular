@@ -31,11 +31,18 @@ export class AppComponent {
   intro = 'Sohaib Ali';
   display_result = ''
 
-  Time() {
-    var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    return time
-  }
+  pipesObject ={
+    name:'Sohaib',
+    age: 23
+  } 
+
+  //Using Pipes
+  today: number = Date.now();
+  // Time() {
+  //   var today = new Date();
+  //   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  //   return time
+  // }
   //making an array and using it through *ngFor
   users = ['Sohaib', 'Ali', 'Kashmiri']
   // userDetail = [
@@ -55,10 +62,24 @@ export class AppComponent {
     {name:'Khan', email: 'khan@gmail.com'},
     {name:'Akbar', email: 'akbar@gmail.com'},
   ]
+  //Pipes
+
+
+
+
+  //Template Ref Var
+  getVal(item:any){
+    console.log(item)
+  }
+
+  //Two Way Binding
+  twoway:any;
+
 
   // child to parent
+  u_data = ''
   updateData(item:string){
-    console.log(item)
+    this.u_data = item
 
   }
 
