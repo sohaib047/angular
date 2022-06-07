@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,13 +19,7 @@ export class AppComponent {
     this.color = "yellow"
     this.bgColor = "black"
   }
-  //form
-  userData:any = {};
-
-  submit(data:NgForm){
-    console.log(data);
-    this.userData=data;
-  }
+  
 
   //user define code
   intro = 'Sohaib Ali';
@@ -35,7 +29,35 @@ export class AppComponent {
     name:'Sohaib',
     age: 23
   } 
+  //Reactive Form
+  loginForm = new FormGroup({
+    userR: new FormControl('',[Validators.required, Validators.pattern('^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$')]),
+    emailR: new FormControl('',[Validators.required,Validators.email]),
+    passwordR: new FormControl('',[Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')])
+  })
+  loginUser(){
+    console.log(this.loginForm.value)
+  }
+  get user(){
+    return this.loginForm.get('userR')
+  }
+  get email(){
+    return this.loginForm.get('emailR')
+  }
+  get password(){
+    return this.loginForm.get('passwordR')
+  }
 
+
+
+
+//template driven form
+userData:any = {};
+
+submit(data:NgForm){
+  this.userData=data;
+  console.log(this.userData);
+}
   //Using Pipes
   today: number = Date.now();
   // Time() {

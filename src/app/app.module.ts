@@ -16,7 +16,8 @@ import { ChildComponent } from './child/child.component';
 import { DetailsComponent } from './details/details.component';
 import { DataChildComponent } from './data-child/data-child.component';
 import { UsdtopkrPipe } from './pipes/usdtopkr.pipe';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { RedElDirective } from './myDirectives/red-el.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { UsdtopkrPipe } from './pipes/usdtopkr.pipe';
     DetailsComponent,
     DataChildComponent,
     UsdtopkrPipe,
-  ],
+    RedElDirective,
+   ],
   imports: [
     BrowserModule,
     UserAuthModule,
@@ -36,7 +38,8 @@ import { UsdtopkrPipe } from './pipes/usdtopkr.pipe';
     MatSliderModule,
     MatButtonModule,
     MatBadgeModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

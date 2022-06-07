@@ -10,21 +10,48 @@
 </div>
 <hr>
 <br>
+
+<!-- Template Driven Form -->
+<h1 class="italic" >Reactive Form with Validations</h1>
+<form [formGroup] = "loginForm" (ngSubmit)="loginUser()" >
+  <label for="username">Name:</label>
+  <input class="task" type="text"  name="userR" placeholder="enter username" formControlName="userR" > <br>
+  <span style="color: red;" *ngIf="(user && user.invalid && user.touched)" >username must be 8-20 characters long,no special charachters, no __ or _. or ._ or .. inside, no _ or . at the end </span> <br>
+
+  <label for="email">Email:</label>
+  <input  class="task"type="email"  name="emailR" placeholder="enter your email" formControlName="emailR"><br>
+  <span style="color: red;" *ngIf="(email && email.invalid && email.touched)" >Email is not valid</span> <br>
+
+  <label for="password">Password: </label>
+  <input class="task" type="password" name="passwordR" placeholder="enter your password" formControlName="passwordR"><br>
+  <span style="color: red;" *ngIf="(password && password.invalid && password.touched)" >Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:</span> <br>
+  <button mat-raised-button [disabled]="loginForm.invalid">Login</button>
+</form>
+
+<br>
+<!-- Template Driven Form -->
+<!-- <h1 class="italic" >Template Driven Form(Basic Form)</h1>
+<form #loginForm = "ngForm" (ngSubmit)="submit(loginForm.value)">
+  
+    <label for="username">Name:</label>
+    <input class="task" type="text" ngModel name="userT" placeholder="enter username"> <br>
+  
+    <label for="email">Email:</label>
+    <input  class="task"type="email" ngModel name="emailT" placeholder="enter your email"> <br>
+  
+    <label for="password">Password: </label>
+    <input class="task" type="password" ngModel name="passwordT" placeholder="enter your password"> <br>
+    <button mat-stroked-button color="primary" >Submit</button>
+
+
+</form> -->
+
+
+<br>
 <!-- Custom Pipes in Angular -->
 <h2>CustomPipes in Angular</h2>
 <h3>USD to PKR</h3>
 <h3> {{50 | usdtopkr : 199.38 | currency: 'PKR' }} </h3>
-
-
-
-
-
-
-
-
-
-
-
 
 <br>
 <!-- Pipes in Angular -->
@@ -36,7 +63,8 @@
 <!-- here decimal point is the midpoint -->
 <p> {{22. | number: '3.2-5'}} </p> 
 <p>{{ 20 | currency:'PKR'}}</p>
-
+<br>
+<h2> Directives </h2>
 
 <br>
 <!-- Template Reference Variable -->
@@ -78,7 +106,7 @@
 <br>
 <!-- Making Todo List -->
 <h3>Todo List</h3>
-<input type="text" name="task" id="task" #task placeholder="Enter New Task...">
+<input type="text" name="task" class="task" #task placeholder="Enter New Task...">
 <br>
 <button mat-raised-button id="addtask" (click)="addtask(task.value)">Add Task</button>
 <ul *ngFor="let item of tasks">
@@ -160,7 +188,7 @@
   </ngb-panel>
 </ngb-accordion> <br>
 <!-- Basic Form -->
-<h2 class="italic">Basic Form</h2>
+<!-- <h2 class="italic">Basic Form</h2>
 <form #basicForm="ngForm" (ngSubmit)="submit(basicForm.value)">
   <label for="username">Name:</label>
   <input type="text" ngModel name="user" placeholder="enter username"> <br>
@@ -176,7 +204,7 @@
   <li>{{userData.user}}</li>
   <li>{{userData.email}}</li>
   <li>{{userData.password}}</li>
-</ul>
+</ul> -->
 
 <!-- components can be used as html tag list -->
 <h3 class="italic">Practice in Angular</h3>
